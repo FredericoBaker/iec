@@ -1,0 +1,5 @@
+rembg
+onnxruntime
+selenium
+webdriver_manager
+python-dotenv

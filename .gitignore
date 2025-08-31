@@ -1,0 +1,4 @@
+__pycache__/
+venv_scripts_iec/
+thumbnails/
+.env
