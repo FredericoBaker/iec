@@ -3,10 +3,13 @@ import os
 from urllib.parse import urlparse, parse_qs
 from datetime import datetime
 from rembg import remove
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class YouTubeVideo:
-    YOUTUBE_API_KEY = 'AIzaSyDn-d7OIyG068UmagKPn_6svrjUankWxas'
-    YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3/videos'
+    YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+    YOUTUBE_API_URL = os.getenv("YOUTUBE_API_URL")
 
     def __init__(self, video_url):
         self.video_url = video_url
