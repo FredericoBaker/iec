@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thumbnail - Igreja</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --accent: #d4a373;
+      --text-main: #1b1b1b;
+      --text-secondary: #444;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1e1e1e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .thumbnail {
+      width: 1280px;
+      height: 720px;
+      background: var(--bg);
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 15px 60px rgba(0,0,0,0.25);
+    }
+
+    .photo {
+      position: absolute;
+      top: 50%;
+      left: 60%;
+      transform: translate(-35%, -50%);
+      width: 120%;
+      height: 120%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.95);
+      z-index: 1;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(250,248,245,1) 0%,
+        rgba(250,248,245,0.9) 30%,
+        rgba(250,248,245,0.3) 65%,
+        rgba(250,248,245,0) 85%
+      );
+      z-index: 2;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      left: 50px;
+      width: 60px;
+      height: 60px;
+      z-index: 3;
+      object-fit: contain;
+    }
+
+    .text-section {
+      position: absolute;
+      top: 50%;
+      left: 100px;
+      transform: translateY(-50%);
+      z-index: 4;
+      max-width: 600px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 82px;
+      line-height: 1;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 28px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="thumbnail">
+    <img class="photo" src="original_thumbnail_2025-10-26_Eb9cP2JFYRQ.jpg" alt="">
+    <div class="overlay"></div>
+    <img class="logo" src="logo.png" alt="Logo">
+    <div class="text-section">
+      <div class="divider"></div>
+      <h1>Qual é a Sua Pátria?</h1>
+      <p>Samuel Baker</p>
+    </div>
+  </div>
+</body>
+</html>
