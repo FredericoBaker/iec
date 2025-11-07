@@ -10,7 +10,7 @@ def main():
     PASSWORD = os.getenv("ADMIN_PANEL_PASSWORD")
 
     YOUTUBE_LINKS = [
-        'https://www.youtube.com/watch?v=Eb9cP2JFYRQ'
+        'https://www.youtube.com/watch?v=54jElCwBDXY'
     ]
 
     cms = IECAdminPanel()
