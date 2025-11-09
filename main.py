@@ -1,7 +1,9 @@
 from youtube_video import YouTubeVideo
 from iec_admin_panel import IECAdminPanel
+from thumb_generator import ThumbnailGenerator
 from dotenv import load_dotenv
 import os
+from pathlib import Path
 
 load_dotenv()
 
@@ -21,19 +23,34 @@ def main():
             video = YouTubeVideo(link)
             video_data = video.get_video_data()
 
-            video.download_thumbnail_no_bg(save_path="thumbnails")
+            # thumbnail_path = video.download_thumbnail_no_bg(save_path="thumbnails")
+            filename = f"thumbnail_{video_data['id']}.png"
+            thumbnail_path = video.download_thumbnail(save_path="thumbnails", filename=filename)
 
             title_parts = video_data['title'].rsplit(' - ', 1)
             title = video_data['title']
             preacher_name = title_parts[1].strip() if len(title_parts) > 1 else "Unknown"
 
-            cms.add_pregacao(
-                link=link,
-                title=title,
-                description=video_data['description'],
-                publish_date=video_data['publish_date'],
-                preacher_name=preacher_name
+            generator = ThumbnailGenerator(
+                template_path=Path("templates/thumbnail_template.html"),
+                output_html=Path("thumbnail_temp.html"),
+                output_image=Path(f"thumbnails/{video_data['id']}_custom_thumbnail.png")
             )
+
+            generator.generate_thumbnail({
+                "title": title_parts[0].strip(),
+                "speaker": preacher_name,
+                "image_path": Path(thumbnail_path).resolve().as_uri(),
+                "font_size": 82
+            })
+
+            # cms.add_pregacao(
+            #     link=link,
+            #     title=title,
+            #     description=video_data['description'],
+            #     publish_date=video_data['publish_date'],
+            #     preacher_name=preacher_name
+            # )
 
             print(f"Video '{video_data['title']}' processed successfully.")
 

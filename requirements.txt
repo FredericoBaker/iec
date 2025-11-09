@@ -3,3 +3,5 @@ onnxruntime
 selenium
 webdriver_manager
 python-dotenv
+playwright
+jinja2

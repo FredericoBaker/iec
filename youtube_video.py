@@ -51,10 +51,11 @@ class YouTubeVideo:
 
     def get_video_data(self):
         """
-        Returns a dictionary with video title, description, and publish date.
+        Returns a dictionary with video title, description, publish date, and video ID.
         """
         snippet = self.data['items'][0]['snippet']
         return {
+            'id': self.video_id,
             'title': snippet['title'],
             'description': snippet['description'],
             'publish_date': snippet['publishedAt']

@@ -3,36 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thumbnail - Igreja</title>
+  <title>Thumbnail - Igreja em Contagem</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #faf8f5;
       --accent: #d4a373;
+      --accent-2: #a97a55;
       --text-main: #1b1b1b;
       --text-secondary: #444;
     }
-
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1280px;
+      height: 720px;
+      background: var(--bg);
+      overflow: hidden;
       font-family: 'Inter', sans-serif;
-      background: #1e1e1e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
     }
 
     .thumbnail {
       width: 1280px;
       height: 720px;
       background: var(--bg);
-      border-radius: 24px;
+      border-radius: 0;
       overflow: hidden;
       position: relative;
       box-shadow: 0 15px 60px rgba(0,0,0,0.25);
@@ -43,8 +45,8 @@
       top: 50%;
       left: 60%;
       transform: translate(-35%, -50%);
-      width: 120%;
-      height: 120%;
+      width: 110%;
+      height: 110%;
       object-fit: cover;
       object-position: center;
       filter: brightness(0.95);
@@ -56,22 +58,52 @@
       inset: 0;
       background: linear-gradient(
         to right,
-        rgba(250,248,245,1) 5%,
-        rgba(250,248,245,0.9) 40%,
-        rgba(250,248,245,0.3) 65%,
-        rgba(250,248,245,0) 85%
+        rgba(250,248,245,1) 0%,
+        rgba(250,248,245,0.98) 25%,
+        rgba(250,248,245,0.92) 35%,
+        rgba(250,248,245,0.75) 50%,
+        rgba(250,248,245,0.4) 65%,
+        rgba(250,248,245,0.15) 78%,
+        rgba(250,248,245,0) 90%
       );
       z-index: 2;
     }
 
-    .logo {
+    .logo-section {
       position: absolute;
       top: 40px;
       left: 50px;
-      width: 60px;
-      height: 60px;
       z-index: 3;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 70px;
+      height: 70px;
       object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.1));
+    }
+
+    .brand {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand small {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #6b6b6b;
+      font-weight: 600;
+    }
+
+    .brand strong {
+      font-size: 18px;
+      color: var(--text-main);
+      font-weight: 800;
+      letter-spacing: .02em;
     }
 
     .text-section {
@@ -84,11 +116,11 @@
     }
 
     .divider {
-      width: 60px;
-      height: 3px;
-      background: var(--accent);
-      border-radius: 2px;
-      margin-bottom: 25px;
+      width: 72px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 3px;
+      margin-bottom: 28px;
     }
 
     h1 {
@@ -97,25 +129,30 @@
       line-height: 1;
       color: var(--text-main);
       margin-bottom: 20px;
+      font-weight: 700;
     }
 
     p {
       font-size: 28px;
       color: var(--text-secondary);
-      font-weight: 500;
+      font-weight: 600;
     }
 
   </style>
 </head>
 <body>
   <div class="thumbnail">
-    <img class="photo" src="../thumbnails/original_thumbnail_2025-08-03_p9rwi8bxM6A.jpg" alt="">
+    <img class="photo" src="C:/Users/Igreja em Contagem/Desktop/code/iec/thumbnails/original_thumbnail_2025-08-31_xnlHx7Ttk64.jpg" alt="">
     <div class="overlay"></div>
-    <img class="logo" src="logo.png" alt="Logo">
+    
+    <div class="logo-section">
+      <img class="logo" src="C:/Users/Igreja em Contagem/Desktop/code/iec/templates/logo.png" alt="Logo">
+    </div>
+
     <div class="text-section">
       <div class="divider"></div>
-      <h1>Qual é a Sua Pátria?</h1>
-      <p>Samuel Baker</p>
+      <h1>O Tabernáculo</h1>
+      <p>Cleiton Cunha</p>
     </div>
   </div>
 </body>
