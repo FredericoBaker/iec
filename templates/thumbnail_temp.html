@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thumbnail - Igreja em Contagem</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #faf8f5;
@@ -12,6 +12,7 @@
       --accent-2: #a97a55;
       --text-main: #1b1b1b;
       --text-secondary: #444;
+      --border-color: #c9a57a;
     }
     
     * {
@@ -25,19 +26,21 @@
       padding: 0;
       width: 1280px;
       height: 720px;
-      background: var(--bg);
       overflow: hidden;
-      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+      font-family: 'Montserrat', sans-serif;
     }
 
     .thumbnail {
-      width: 1280px;
-      height: 720px;
-      background: var(--bg);
-      border-radius: 0;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 1240px;
+      height: 680px;
       overflow: hidden;
-      position: relative;
-      box-shadow: 0 15px 60px rgba(0,0,0,0.25);
+      background: var(--bg);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
     }
 
     .photo {
@@ -80,8 +83,8 @@
     }
 
     .logo {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       object-fit: contain;
       filter: drop-shadow(0 2px 6px rgba(0,0,0,.1));
     }
@@ -124,25 +127,44 @@
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 82px;
-      line-height: 1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: {{ font_size }}px;
+      line-height: 1.2;
       color: var(--text-main);
       margin-bottom: 20px;
       font-weight: 700;
     }
 
     p {
+      font-family: 'Montserrat', sans-serif;
       font-size: 28px;
       color: var(--text-secondary);
       font-weight: 600;
+    }
+
+    .date-badge {
+      position: absolute;
+      bottom: 45px;
+      left: 50px;
+      z-index: 4;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      padding: 10px 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(212, 163, 115, 0.3);
+    }
+
+    .date-badge .date-value {
+      font-size: 18px;
+      color: #fff;
+      font-weight: 500;
+      letter-spacing: .01em;
     }
 
   </style>
 </head>
 <body>
   <div class="thumbnail">
-    <img class="photo" src="C:/Users/Igreja em Contagem/Desktop/code/iec/thumbnails/original_thumbnail_2025-08-31_xnlHx7Ttk64.jpg" alt="">
+    <img class="photo" src="{{ image_path }}" alt="">
     <div class="overlay"></div>
     
     <div class="logo-section">
@@ -151,8 +173,12 @@
 
     <div class="text-section">
       <div class="divider"></div>
-      <h1>O Tabernáculo</h1>
-      <p>Cleiton Cunha</p>
+      <h1>{{ title }}</h1>
+      <p>{{ speaker }}</p>
+    </div>
+
+    <div class="date-badge">
+      <div class="date-value">{{ badge_content }}</div>
     </div>
   </div>
 </body>

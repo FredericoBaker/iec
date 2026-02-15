@@ -54,11 +54,18 @@ class YouTubeVideo:
         Returns a dictionary with video title, description, publish date, and video ID.
         """
         snippet = self.data['items'][0]['snippet']
+
+        publish_date_str = snippet['publishedAt']
+        publish_date = datetime.strptime(
+            publish_date_str,
+            "%Y-%m-%dT%H:%M:%SZ"
+        )
+        
         return {
             'id': self.video_id,
             'title': snippet['title'],
             'description': snippet['description'],
-            'publish_date': snippet['publishedAt']
+            'publish_date': publish_date
         }
 
     def get_thumbnail_url(self):

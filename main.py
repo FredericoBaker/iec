@@ -7,12 +7,17 @@ from pathlib import Path
 
 load_dotenv()
 
+BASE_FONT_SIZE = 75
+
 def main():
     USERNAME = os.getenv("ADMIN_PANEL_USERNAME")
     PASSWORD = os.getenv("ADMIN_PANEL_PASSWORD")
 
     YOUTUBE_LINKS = [
-        'https://www.youtube.com/watch?v=54jElCwBDXY'
+        'https://www.youtube.com/watch?v=hfEvH4QSrB8',
+        'https://www.youtube.com/watch?v=ZmYy5pff53E',
+        'https://www.youtube.com/watch?v=WmmvzdQQr4c',
+        'https://www.youtube.com/watch?v=hOrL011wjLg'
     ]
 
     cms = IECAdminPanel()
@@ -41,16 +46,17 @@ def main():
                 "title": title_parts[0].strip(),
                 "speaker": preacher_name,
                 "image_path": Path(thumbnail_path).resolve().as_uri(),
-                "font_size": 82
+                "font_size": BASE_FONT_SIZE,
+                "badge_content": video_data['publish_date'].strftime("%d/%m/%Y")
             })
 
-            # cms.add_pregacao(
-            #     link=link,
-            #     title=title,
-            #     description=video_data['description'],
-            #     publish_date=video_data['publish_date'],
-            #     preacher_name=preacher_name
-            # )
+            cms.add_pregacao(
+                link=link,
+                title=title,
+                description=video_data['description'],
+                publish_date=video_data['publish_date'].strftime("%Y-%m-%dT%H:%M:%SZ"),
+                preacher_name=preacher_name
+            )
 
             print(f"Video '{video_data['title']}' processed successfully.")
 
