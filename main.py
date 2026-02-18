@@ -14,7 +14,10 @@ def main():
     PASSWORD = os.getenv("ADMIN_PANEL_PASSWORD")
 
     YOUTUBE_LINKS = [
-        'https://www.youtube.com/watch?v=CYvXay4_Md0',
+        'https://www.youtube.com/watch?v=hOrL011wjLg',
+        'https://www.youtube.com/watch?v=WmmvzdQQr4c',
+        'https://www.youtube.com/watch?v=ZmYy5pff53E',
+        'https://www.youtube.com/watch?v=hfEvH4QSrB8'
     ]
 
     cms = IECAdminPanel()
@@ -44,8 +47,7 @@ def main():
                 "speaker": preacher_name,
                 "image_path": Path(thumbnail_path).resolve().as_uri(),
                 "font_size": BASE_FONT_SIZE,
-                "badge_content": "Conferência em Contagem 2026 - Terça Manhã"
-                # "badge_content": video_data['publish_date'].strftime("%d/%m/%Y")
+                "badge_content": video_data['publish_date'].strftime("%d/%m/%Y")
             })
 
             # cms.add_pregacao(
