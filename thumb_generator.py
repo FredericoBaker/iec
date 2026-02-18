@@ -14,7 +14,7 @@ class ThumbnailGenerator:
         length = len(title)
         if length <= max_chars:
             return base_size
-        scale = max(min_size, base_size - (length - max_chars) * 1.2)
+        scale = max(min_size, base_size - (length - max_chars) * 1.3)
         return round(scale)
 
     def render_template(self, data: dict):
@@ -36,11 +36,12 @@ class ThumbnailGenerator:
             page = context.new_page()
             page.goto(self.output_html.resolve().as_uri(), wait_until="networkidle")
             page.wait_for_timeout(200)
-            thumbnail = page.query_selector(".thumbnail")
-            if thumbnail is None:
-                page.screenshot(path=str(self.output_image))
-            else:
-                thumbnail.screenshot(path=str(self.output_image))
+
+            page.screenshot(
+                path=str(self.output_image),
+                clip={"x": 0, "y": 0, "width": width, "height": height}
+            )
+
             browser.close()
 
     def generate_thumbnail(self, data: dict, width=1280, height=720):
