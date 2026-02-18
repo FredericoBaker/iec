@@ -45,31 +45,15 @@
 
     .photo {
       position: absolute;
-      top: 50%;
-      left: 60%;
-      transform: translate(-35%, -50%);
-      width: 110%;
-      height: 110%;
+      top: 15px;
+      right: 15px;
+      width: calc(40% - 15px);
+      height: calc(100% - 30px);
       object-fit: cover;
       object-position: center;
       filter: brightness(0.95);
+      border-radius: 20px;
       z-index: 1;
-    }
-
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(250,248,245,1) 0%,
-        rgba(250,248,245,0.98) 25%,
-        rgba(250,248,245,0.92) 35%,
-        rgba(250,248,245,0.75) 50%,
-        rgba(250,248,245,0.4) 65%,
-        rgba(250,248,245,0.15) 78%,
-        rgba(250,248,245,0) 90%
-      );
-      z-index: 2;
     }
 
     .logo-section {
@@ -115,7 +99,7 @@
       left: 100px;
       transform: translateY(-50%);
       z-index: 4;
-      max-width: 600px;
+      max-width: 500px; /* Reduzi um pouco o max-width para garantir que textos longos não invadam a imagem */
     }
 
     .divider {
@@ -165,10 +149,9 @@
 <body>
   <div class="thumbnail">
     <img class="photo" src="{{ image_path }}" alt="">
-    <div class="overlay"></div>
     
     <div class="logo-section">
-      <img class="logo" src="C:/Users/Igreja em Contagem/Desktop/code/iec/templates/logo.png" alt="Logo">
+      <img class="logo" src="C:\Users\fredb\Desktop\Igreja\Youtube\scripts\templates\logo.png" alt="Logo">
     </div>
 
     <div class="text-section">
